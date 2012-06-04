@@ -44,6 +44,9 @@ cc.CCNODE_ON_ENTER = null;
  */
 cc.CCNODE_ON_EXIT = null;
 
+/**
+ * @function
+ */
 cc.saveContext = function () {
     if (cc.renderContextType == cc.CANVAS) {
         cc.renderContext.save();
@@ -51,6 +54,9 @@ cc.saveContext = function () {
         //glPushMatrix();
     }
 };
+/**
+ * @function
+ */
 cc.restoreContext = function () {
     if (cc.renderContextType == cc.CANVAS) {
         cc.renderContext.restore();
@@ -59,63 +65,61 @@ cc.restoreContext = function () {
     }
 };
 
-/** @brief cc.Node is the main element. Anything thats gets drawn or contains things that get drawn is a cc.Node.
- The most popular CCNodes are: CCScene, CCLayer, CCSprite, CCMenu.
+/** <p>cc.Node is the main element. Anything thats gets drawn or contains things that get drawn is a cc.Node.<br/>
+ The most popular CCNodes are: CCScene, CCLayer, CCSprite, CCMenu.<br/></p>
 
- The main features of a cc.Node are:
- - They can contain other cc.Node nodes (addChild, getChildByTag, removeChild, etc)
- - They can schedule periodic callback (schedule, unschedule, etc)
- - They can execute actions (runAction, stopAction, etc)
+ <p>The main features of a cc.Node are: <br/>
+ - They can contain other cc.Node nodes (addChild, getChildByTag, removeChild, etc) <br/>
+ - They can schedule periodic callback (schedule, unschedule, etc) <br/>
+ - They can execute actions (runAction, stopAction, etc) <br/></p>
 
- Some cc.Node nodes provide extra functionality for them or their children.
+ <p>Some cc.Node nodes provide extra functionality for them or their children.</p>
 
- Subclassing a cc.Node usually means (one/all) of:
- - overriding init to initialize resources and schedule callbacks
- - create callbacks to handle the advancement of time
- - overriding draw to render the node
+ <p>Subclassing a cc.Node usually means (one/all) of: <br/>
+ - overriding init to initialize resources and schedule callbacks  <br/>
+ - create callbacks to handle the advancement of time <br/>
+ - overriding draw to render the node   <br/></p>
 
- Features of cc.Node:
- - position
- - scale (x, y)
- - rotation (in degrees, clockwise)
- - CCCamera (an interface to gluLookAt )
- - CCGridBase (to do mesh transformations)
- - anchor point
- - size
- - visible
- - z-order
- - openGL z position
+ <p>Features of cc.Node: <br/>
+ - position  <br/>
+ - scale (x, y) <br/>
+ - rotation (in degrees, clockwise) <br/>
+ - CCCamera (an interface to gluLookAt ) <br/>
+ - CCGridBase (to do mesh transformations)  <br/>
+ - anchor point<br/>
+ - size <br/>
+ - visible<br/>
+ - z-order <br/>
+ - openGL z position <br/></P>
 
- Default values:
- - rotation: 0
- - position: (x=0,y=0)
- - scale: (x=1,y=1)
- - contentSize: (x=0,y=0)
- - anchorPoint: (x=0,y=0)
+<p> Default values: <br/>
+ - rotation: 0 <br/>
+ - position: (x=0,y=0) <br/>
+ - scale: (x=1,y=1) <br/>
+ - contentSize: (x=0,y=0)<br/>
+ - anchorPoint: (x=0,y=0)<br/></p>
 
- Limitations:
- - A cc.Node is a "void" object. It doesn't have a texture
+<p> Limitations:<br/>
+ - A cc.Node is a "void" object. It doesn't have a texture <br/></P>
 
- Order in transformations with grid disabled
- -# The node will be translated (position)
- -# The node will be rotated (rotation)
- -# The node will be scaled (scale)
- -# The node will be moved according to the camera values (camera)
+ <p>Order in transformations with grid disabled <br/>
+ -# The node will be translated (position)  <br/>
+ -# The node will be rotated (rotation)<br/>
+ -# The node will be scaled (scale)  <br/>
+ -# The node will be moved according to the camera values (camera) <br/></p>
 
- Order in transformations with grid enabled
- -# The node will be translated (position)
- -# The node will be rotated (rotation)
- -# The node will be scaled (scale)
- -# The grid will capture the screen
- -# The node will be moved according to the camera values (camera)
- -# The grid will render the captured screen
+ <p>Order in transformations with grid enabled<br/>
+ -# The node will be translated (position)<br/>
+ -# The node will be rotated (rotation) <br/>
+ -# The node will be scaled (scale) <br/>
+ -# The grid will capture the screen <br/>
+ -# The node will be moved according to the camera values (camera) <br/>
+ -# The grid will render the captured screen <br/></P>
 
- Camera:
- - Each node has a camera. By default it points to the center of the cc.Node.
- */
-
-/**
+ <p>Camera:  <br/>
+ - Each node has a camera. By default it points to the center of the cc.Node.</P>
  * @class
+ * @augments cc.Class
  */
 cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     /**

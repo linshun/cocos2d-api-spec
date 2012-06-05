@@ -124,7 +124,7 @@ cc.restoreContext = function () {
 cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     /**
      * zOrder
-     * @type int
+     * @type Number
      */
     _zOrder:0,
     /**
@@ -227,13 +227,13 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     _isRelativeAnchorPoint:true,
     /**
      * tag
-     * @type int
+     * @type Number
      */
     _tag:cc.CCNODE_TAG_INVALID,
     /**
      * userData is always inited as nil
      * userData
-     * @type int
+     * @type Number
      */
     _userData:null,
     /**
@@ -377,14 +377,14 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
     /** zOrder getter
      *
-     * @return {int}
+     * @return {Number}
      */
     getZOrder:function () {
         return this._zOrder;
     },
     /** zOrder setter : private method
      * used internally to alter the zOrder variable. DON'T call this method manually
-     * @param {int} z
+     * @param {Number} z
      * @private
      */
 
@@ -580,7 +580,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     /** Get children count
      *
-     * @return {int}
+     * @return {Number}
      */
 
     getChildrenCount:function () {
@@ -764,13 +764,13 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     /** tag getter
      *
-     * @return {int}
+     * @return {Number}
      */
     getTag:function () {
         return this._tag;
     },
     /** tag setter
-     * @param {int} Var
+     * @param {Number} Var
      */
     setTag:function (Var) {
         this._tag = Var;
@@ -792,7 +792,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     /** returns a "local" axis aligned bounding box of the node.
      The returned box is relative only to its parent.
 
-     * @return {int}
+     * @return {Number}
      */
     boundingBox:function () {
         var ret = this.boundingBoxInPixels();
@@ -855,7 +855,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     // composition: GET
     /** Gets a child from the container given its tag
-     * @param {int} aTag
+     * @param {Number} aTag
      * @return {cc.Node}
      */
     getChildByTag:function (aTag) {
@@ -879,8 +879,8 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * to override this method </p>
 
      * @param {cc.Node} child
-     * @param {int} zOrder
-     * @param {int} tag
+     * @param {Number} zOrder
+     * @param {Number} tag
      */
 
 
@@ -939,7 +939,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     /** Removes a child from the container by tag value. It will also cleanup all running actions depending on the cleanup parameter
      *
-     * @param {int} tag
+     * @param {Number} tag
      * @param {Boolean} cleanup
      */
 
@@ -1008,7 +1008,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     /** helper used by reorderChild & add
      *
      * @param {cc.Node} child
-     * @param {int} z
+     * @param {Number} z
      * @private
      */
     _insertChild:function (child, z) {
@@ -1029,7 +1029,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     /** Reorders a child according to a new z value. <br/>
      * The child MUST be already added.
      * @param {cc.Node} child
-     * @param {int} zOrder
+     * @param {Number} zOrder
      */
    reorderChild:function (child, zOrder) {
         cc.Assert(child != null, "Child must be non-nil");
@@ -1297,7 +1297,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     /** Removes an action from the running action list given its tag
      *
-     * @param {int} tag
+     * @param {Number} tag
      */
     stopActionByTag:function (tag) {
         cc.Assert(tag != cc.CCACTION_TAG_INVALID, "Invalid tag");
@@ -1305,7 +1305,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     /** Gets an action from the running action list given its tag
      *
-     * @param {int} tag
+     * @param {Number} tag
      * @return {cc.Action}
      */
     getActionByTag:function (tag) {
@@ -1316,7 +1316,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      *    Composable actions are counted as 1 action. Example:<br/>
      *    If you are running 1 Sequence of 7 actions, it will return 1. <br/>
      *    If you are running 7 Sequences of 2 actions, it will return 7.
-     * @return {int}
+     * @return {Number}
      */
     numberOfRunningActions:function () {
         return cc.ActionManager.sharedManager.numberOfRunningActionsInTarget(this);
@@ -1343,7 +1343,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      Scheduled selectors with a lower priority will be called before the ones that have a higher value.<br/>
      Only one "update" selector could be scheduled per node (You can't have 2 'update' selectors).<br/>
 
-     * @param {int} priority
+     * @param {Number} priority
      */
 
     scheduleUpdateWithPriority:function (priority) {

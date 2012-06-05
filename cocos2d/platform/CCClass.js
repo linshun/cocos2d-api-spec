@@ -27,6 +27,7 @@
  * @namespace
  */
 var cc = cc = cc || {};
+
 (function () {
     var initializing = false, fnTest = /xyz/.test(function () {
         xyz;
@@ -43,8 +44,9 @@ var cc = cc = cc || {};
     // Create a new Class that inherits from this Class
     /**
      * John Resig style Class Declaration
-     * @param prop  Property object
+     * @param {object} prop  Property object
      * @memberOf cc.Class#
+     * @return {cc.Class}
      */
     cc.Class.extend = function (prop) {
         var _super = this.prototype;

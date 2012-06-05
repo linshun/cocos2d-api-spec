@@ -528,16 +528,16 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     getPositionInPixels:function () {
         return new cc.Point(this._positionInPixels.x, this._positionInPixels.y);
     },
-    /** get/set Position for Lua (pass number faster than CCPoint object)
+    /** <p>get/set Position for Lua (pass number faster than CCPoint object)</p>
 
-     lua code:
-     local x, y = node:getPosition()    -- return x, y values from C++
-     local x    = node:getPositionX()
-     local y    = node:getPositionY()
-     node:setPosition(x, y)             -- pass x, y values to C++
-     node:setPositionX(x)
-     node:setPositionY(y)
-     node:setPositionInPixels(x, y)     -- pass x, y values to C++
+     <p>lua code:<br/>
+     local x, y = node:getPosition()    -- return x, y values from C++ <br/>
+     local x    = node:getPositionX()<br/>
+     local y    = node:getPositionY()<br/>
+     node:setPosition(x, y)             -- pass x, y values to C++ <br/>
+     node:setPositionX(x) <br/>
+     node:setPositionY(y)<br/>
+     node:setPositionInPixels(x, y)     -- pass x, y values to C++ <br/></P>
      */
     getPosition:function () {
         return new cc.Point(this._position.x, this._position.y);
@@ -619,11 +619,11 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         this.setNodeDirty();
     },
 
-    /** anchorPoint is the point around which all transformations and positioning manipulations take place.
-     It's like a pin in the node where it is "attached" to its parent.
-     The anchorPoint is normalized, like a percentage. (0,0) means the bottom-left corner and (1,1) means the top-right corner.
-     But you can use values higher than (1,1) and lower than (0,0) too.
-     The default anchorPoint is (0.5,0.5), so it starts in the center of the node.
+    /** <p>anchorPoint is the point around which all transformations and positioning manipulations take place.<br/>
+     It's like a pin in the node where it is "attached" to its parent. <br/>
+     The anchorPoint is normalized, like a percentage. (0,0) means the bottom-left corner and (1,1) means the top-right corner. <br/>
+     But you can use values higher than (1,1) and lower than (0,0) too.  <br/>
+     The default anchorPoint is (0.5,0.5), so it starts in the center of the node. <br/></p>
      @since v0.8
      */
     getAnchorPoint:function () {
@@ -673,9 +673,9 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
             this.setNodeDirty(); // CC_NODE_TRANSFORM_USING_AFFINE_MATRIX
         }
     },
-    /** The untransformed size of the node.
-     The contentSize remains the same no matter the node is scaled or rotated.
-     All nodes has a size. Layer and Scene has the same size of the screen.
+    /** <p>The untransformed size of the node. <br/>
+     The contentSize remains the same no matter the node is scaled or rotated.<br/>
+     All nodes has a size. Layer and Scene has the same size of the screen. <br/></p>
      @since v0.8
      */
     getContentSize:function () {
@@ -776,8 +776,8 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         var ret = this.boundingBoxInPixels();
         return cc.RECT_PIXELS_TO_POINTS(ret);
     },
-    /** returns a "local" axis aligned bounding box of the node in pixels.
-     The returned box is relative only to its parent.
+    /** returns a "local" axis aligned bounding box of the node in pixels.<br/>
+     The returned box is relative only to its parent.<br/>
      The returned box is in Points.
 
      @since v0.99.5
@@ -843,10 +843,10 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     // composition: ADD
 
-    /** "add" logic MUST only be on this method
+    /** <p>"add" logic MUST only be on this method <br/> </p>
      *
-     * If a class want's to extend the 'addChild' behaviour it only needs
-     * to override this method
+     * <p>If a class want's to extend the 'addChild' behaviour it only needs  <br/>
+     * to override this method </p>
 
      * @param child
      * @param zOrder
@@ -877,19 +877,19 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     // composition: REMOVE
 
-    /** Remove itself from its parent node. If cleanup is true, then also remove all actions and callbacks.
+    /** Remove itself from its parent node. If cleanup is true, then also remove all actions and callbacks. <br/>
      *  If the node orphan, then nothing happens.
      * @param cleanup
      */
     removeFromParentAndCleanup:function (cleanup) {
         this._parent.removeChild(this, cleanup);
     },
-    /** Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter.
+    /** <p>Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter. </p>
      * @since v0.7.1
 
-     * "remove" logic MUST only be on this method
-     * If a class want's to extend the 'removeChild' behavior it only needs
-     * to override this method
+     *<p> "remove" logic MUST only be on this method  <br/>
+     * If a class want's to extend the 'removeChild' behavior it only needs <br/>
+     * to override this method </p>
 
      * @param child
      * @param cleanup
@@ -997,7 +997,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         }
         child._setZOrder(z);
     },
-    /** Reorders a child according to a new z value.
+    /** Reorders a child according to a new z value. <br/>
      * The child MUST be already added.
      * @param child
      * @param zOrder
@@ -1017,16 +1017,16 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     // draw
 
-    /** Override this method to draw your own node.
-     * The following GL states will be enabled by default:
-     - glEnableClientState(GL_VERTEX_ARRAY);
-     - glEnableClientState(GL_COLOR_ARRAY);
-     - glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-     - glEnable(GL_TEXTURE_2D);
+    /** <p>Override this method to draw your own node. <br/>
+     * The following GL states will be enabled by default: <br/>
+     - glEnableClientState(GL_VERTEX_ARRAY);  <br/>
+     - glEnableClientState(GL_COLOR_ARRAY); <br/>
+     - glEnableClientState(GL_TEXTURE_COORD_ARRAY); <br/>
+     - glEnable(GL_TEXTURE_2D); </p>
 
-     AND YOU SHOULD NOT DISABLE THEM AFTER DRAWING YOUR NODE
+     <p>AND YOU SHOULD NOT DISABLE THEM AFTER DRAWING YOUR NODE</p>
 
-     But if you enable any other GL state, you should disable it after drawing your node.
+     <p>But if you enable any other GL state, you should disable it after drawing your node. </p>
      * @param ctx
      */
 
@@ -1090,8 +1090,8 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
         context.restore();
     },
-    /** performs OpenGL view-matrix transformation of it's ancestors.
-     Generally the ancestors are already transformed, but in certain cases (eg: attaching a FBO)
+    /** performs OpenGL view-matrix transformation of it's ancestors.<br/>
+     Generally the ancestors are already transformed, but in certain cases (eg: attaching a FBO) <br/>
      it's necessary to transform the ancestors again.
      @since v0.7.2
      */
@@ -1216,7 +1216,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     },
     //scene managment
 
-    /** callback that is called every time the cc.Node enters the 'stage'.
+    /** callback that is called every time the cc.Node enters the 'stage'.<br/>
      If the cc.Node enters the 'stage' with a transition, this callback is called when the transition starts.
      During onEnter you can't a "sister/brother" node.
      */
@@ -1226,15 +1226,15 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         this._isRunning = true;
     },
 
-    /** callback that is called when the cc.Node enters in the 'stage'.
+    /** callback that is called when the cc.Node enters in the 'stage'.  <br/>
      If the cc.Node enters the 'stage' with a transition, this callback is called when the transition finishes.
      @since v0.8
      */
     onEnterTransitionDidFinish:function () {
         this._arrayMakeObjectsPerformSelector(this._children, "onEnterTransitionDidFinish");
     },
-    /** callback that is called every time the cc.Node leaves the 'stage'.
-     If the cc.Node leaves the 'stage' with a transition, this callback is called when the transition finishes.
+    /** callback that is called every time the cc.Node leaves the 'stage'.<br/>
+     If the cc.Node leaves the 'stage' with a transition, this callback is called when the transition finishes. <br/>
      During onExit you can't access a sibling node.
      */
     onExit:function () {
@@ -1285,9 +1285,9 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         cc.Assert(tag != cc.CCACTION_TAG_INVALID, "Invalid tag");
         return cc.ActionManager.sharedManager().getActionByTag(tag, this);
     },
-    /** Returns the numbers of actions that are running plus the ones that are schedule to run (actions in actionsToAdd and actions arrays).
-     *    Composable actions are counted as 1 action. Example:
-     *    If you are running 1 Sequence of 7 actions, it will return 1.
+    /** Returns the numbers of actions that are running plus the ones that are schedule to run (actions in actionsToAdd and actions arrays).<br/>
+     *    Composable actions are counted as 1 action. Example:<br/>
+     *    If you are running 1 Sequence of 7 actions, it will return 1. <br/>
      *    If you are running 7 Sequences of 2 actions, it will return 7.
      */
     numberOfRunningActions:function () {
@@ -1304,8 +1304,8 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     isScheduled:function (selector) {
         //can't find this function in the cc.Node.cpp file
     },
-    /** schedules the "update" method. It will use the order number 0. This method will be called every frame.
-     Scheduled methods with a lower order value will be called before the ones that have a higher order value.
+    /** schedules the "update" method. It will use the order number 0. This method will be called every frame.<br/>
+     Scheduled methods with a lower order value will be called before the ones that have a higher order value.<br/>
      Only one "update" method could be scheduled per node.
 
      @since v0.99.3
@@ -1313,9 +1313,9 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     scheduleUpdate:function () {
         this.scheduleUpdateWithPriority(0);
     },
-    /** schedules the "update" selector with a custom priority. This selector will be called every frame.
-     Scheduled selectors with a lower priority will be called before the ones that have a higher value.
-     Only one "update" selector could be scheduled per node (You can't have 2 'update' selectors).
+    /** schedules the "update" selector with a custom priority. This selector will be called every frame.<br/>
+     Scheduled selectors with a lower priority will be called before the ones that have a higher value.<br/>
+     Only one "update" selector could be scheduled per node (You can't have 2 'update' selectors).<br/>
 
      @since v0.99.3
 
@@ -1356,7 +1356,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
         cc.Scheduler.sharedScheduler().unscheduleSelector(selector, this);
     },
-    /** unschedule all scheduled selectors: custom selectors, and the 'update' selector.
+    /** unschedule all scheduled selectors: custom selectors, and the 'update' selector.<br/>
      Actions are not affected by this method.
      @since v0.99.3
      */
@@ -1377,7 +1377,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         cc.Scheduler.sharedScheduler().pauseTarget(this);
         cc.ActionManager.sharedManager().pauseTarget(this);
     },
-    /** Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates.
+    /** Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates.<br/>
      The matrix is in Pixels.
      @since v0.7.1
      */
@@ -1416,7 +1416,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
         return this._transform;
     },
-    /** Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates.
+    /** Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates.<br/>
      The matrix is in Pixels.
      @since v0.7.1
      */
@@ -1479,7 +1479,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
         return ret;
     },
-    /** Converts a Point to node (local) space coordinates. The result is in Points.
+    /** Converts a Point to node (local) space coordinates. The result is in Points.<br/>
      treating the returned/received node point as anchor relative.
      * @param worldPoint
      * @return {*}
@@ -1494,7 +1494,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         }
         return cc.ccpSub(nodePoint, anchorInPoints);
     },
-    /** Converts a local Point to world space coordinates.The result is in Points.
+    /** Converts a local Point to world space coordinates.The result is in Points.<br/>
      treating the returned/received node point as anchor relative.
      * @param nodePoint
      * @return {cc.Point}
@@ -1559,6 +1559,6 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
  * @return {cc.Node}
  */
 cc.Node.node = function () {
-    return new cc.Node();
+    return new this();
 };
 

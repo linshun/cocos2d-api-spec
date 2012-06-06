@@ -119,7 +119,7 @@ cc.restoreContext = function () {
  <p>Camera:  <br/>
  - Each node has a camera. By default it points to the center of the cc.Node.</P>
  * @class
- * @augments cc.Class
+ * @extends cc.Class
  */
 cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     /**
